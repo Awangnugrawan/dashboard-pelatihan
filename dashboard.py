@@ -96,21 +96,22 @@ with st.sidebar:
     st.markdown("---")
     
     # Input File Data
-    uploaded_file = st.file_uploader("Unggah File Database Peserta", type=["excel"])
+    uploaded_file = "Data Peserta Pelatihan 2026.xlsx"
+    #st.file_uploader("Unggah File Database Peserta", type=["excel"])
     
     # Fallback to local file if no file uploaded
     data_file = None
     if uploaded_file is not None:
         data_file = uploaded_file
-    else:
-        try:
-            # Mencoba membaca file bawaan jika ada di direktori kerja
-            data_file = "Data Peserta Pelatihan 2026.xlsx"
-            df_test = pd.read_excel(data_file)
-            st.info("💡 Menggunakan file default sistem.")
-        except:
-            st.warning("Silakan unggah file CSV Anda untuk mengaktifkan visualisasi.")
-            st.stop()
+    # else:
+    #     try:
+    #         # Mencoba membaca file bawaan jika ada di direktori kerja
+    #         data_file = 
+    #         df_test = pd.read_excel(data_file)
+    #         st.info("💡 Menggunakan file default sistem.")
+    #     except:
+    #         st.warning("Silakan unggah file CSV Anda untuk mengaktifkan visualisasi.")
+    #         st.stop()
 
 # Memuat data ke aplikasi
 df_master = load_and_clean_data(data_file)
